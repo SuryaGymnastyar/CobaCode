@@ -244,8 +244,8 @@ void Setup()
     arah = BERHENTI;
     x = lebar / 2;
     y = tinggi / 2;
-    posisiBuahX = rand() % lebar;    
-    posisiBuahY = rand() % tinggi;
+    posisiBuahX = (rand() % (lebar - 2)) + 1;  
+    posisiBuahY = (rand() % (tinggi - 2)) + 1;
     skor = 0;
 }
 
@@ -400,8 +400,8 @@ void Logic()
     {
         srand(time(0));
         skor += 2;
-        posisiBuahX = rand() % lebar;     
-        posisiBuahY = rand() % tinggi;
+        posisiBuahX = (rand() % (lebar - 2)) + 1;     
+        posisiBuahY = (rand() % (tinggi - 2)) + 1;
         panjangEkor++;
     }
 }
