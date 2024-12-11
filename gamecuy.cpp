@@ -415,15 +415,15 @@ void GameOver() {
 	cout <<"	     G::::::::::::::G           a::::::a         m:::::m::::::::::m:::::m    e::::::::::::::ee      "<<endl;
 	cout <<"	    G::::GGGGGGGGGGGG          a::::::::a        m::::m m::::::::m m::::m   e::::::eeeee:::::ee     "<<endl;
 	cout <<"  	   G:::::G                    a::::::::::a       m::::m  m::::::m  m::::m  e::::::e     e:::::e     "<<endl;
-	cout <<"         G::::G                     a:::::aa:::::a      m::::m   m::::m   m::::m  e:::::::eeeee::::::e     "<<endl;
+	cout <<"          G::::G                     a:::::aa:::::a      m::::m   m::::m   m::::m  e:::::::eeeee::::::e     "<<endl;
 	cout <<"	  G:::::G    GGGGGGGGGGGG   a::::a    a::::a     m::::m   m::::m   m::::m  e:::::::eeeeeeeeeee      "<<endl;
 	cout <<"	   G::::G       G::::::G   a:::::a    a:::::a    m::::m   m::::m   m::::m  e::::::e                 "<<endl;
 	cout <<"	    GG:::GGGGGGGG:::::G   a:::::::aaaa:::::::a   m::::m   m::::m   m::::m  e::::::::eeeeeeee        "<<endl;
 	cout <<"	     GGGG::::::::::::G   a::::::aa    aa::::::a  m::::m   m::::m   m::::m   ee:::::::::::::::e      "<<endl;
 	cout <<"	       GGGGGGGGGGGGGG    aaaaaaaa      aaaaaaaa  mmmmmm   mmmmmm   mmmmmm     eeeeeeeeeeeeeee       "<<endl;
 	cout <<"              																		              "<<endl;
-	cout <<" 	       ooooooooooo     vvvvvv           vvvvvv        eeeeeeeeeeee         rrrrr   rrrrrrrrr       "<<endl;
-	cout <<" 	     oo:::::::::::oo   v:::::v         v:::::v     ee::::::::::::ee        r::::rrr:::::::::r      "<<endl;
+	cout <<" 	        ooooooooooo     vvvvvv           vvvvvv        eeeeeeeeeeee         rrrrr   rrrrrrrrr       "<<endl;
+	cout <<" 	      oo:::::::::::oo   v:::::v         v:::::v     ee::::::::::::ee        r::::rrr:::::::::r      "<<endl;
 	cout <<"	     o:::::::::::::::o   v:::::v       v:::::v     e::::::eeeee:::::ee      r:::::::::::::::::r     "<<endl;
 	cout <<"	     o:::::ooooo:::::o    v:::::v     v:::::v     e::::::e     e:::::e      rr:::::rrrrr::::::r     "<<endl;
 	cout <<"	     o::::o     o::::o     v:::::v   v:::::v      e:::::::eeeee::::::e      r:::::r     rrrrrr      "<<endl;
