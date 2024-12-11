@@ -210,7 +210,7 @@ void loadingAnimation() {
     
     double amplitude1 = HEIGHT / 8.0; 
     double amplitude2 = HEIGHT / 10.0;
-    double frequency = 3;
+    double frequency = 4;
 
     for (int i = 0; i < WIDTH; i++) {
         int x = i % WIDTH;
@@ -405,6 +405,26 @@ void Logic()
         panjangEkor++;
     }
 }
+void ending(){
+	endwin();
+	system("cls");
+	gotoxy(30, 9);
+	cout << "***********************************************************";
+
+	for (int i = 10; i <= 15; i++) {
+    gotoxy(30, i);
+	cout << "*";
+    gotoxy(88, i);
+	cout << "*";
+}
+	gotoxy(30,15);
+	cout << "***********************************************************";
+	
+	gotoxy(33,12);
+	cout << "Keluar dari Feeding Freenzy, Hope You Always Happy :D" << endl;
+	gotoxy(33,18);
+	exit(0);
+}
 
 void GameOver() {
 	endwin();
@@ -443,9 +463,7 @@ void GameOver() {
 	if (pilih == 'Y' || pilih == 'y') {
    system("cls");
 } else {
-	gotoxy(35,30);
-    cout << "Keluar dari Feeding Frenzy, Hope You Always Happy ! :)" << endl;
-    exit(0); 
+   ending();
 }
 }
 
@@ -484,7 +502,7 @@ int main() {
 
     system("color 3F");
     loadingawal();
-//    loadingAnimation();
+ loadingAnimation();
 
    while (true) { 
        system("cls");
