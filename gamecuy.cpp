@@ -247,6 +247,7 @@ void Setup()
     posisiBuahX = (rand() % (lebar - 2)) + 1;  
     posisiBuahY = (rand() % (tinggi - 2)) + 1;
     skor = 0;
+    panjangEkor = 0;
 }
 
 void Draw()                          
@@ -291,8 +292,8 @@ void Draw()
     }
 
     printw(" ");
-    for (int i = 0; i < lebar + 2; i++)
-        printw("#");
+    for (int i = 0; i < lebar + 1; i++)
+    printw("#");
     printw("\n\n SCORE : %d\n", skor);   
 
         mvprintw(24,15,"W = UP");
@@ -389,7 +390,7 @@ void Logic()
     default:
     	break;
     }
-    if (x > lebar || x < 0 || y > tinggi || y < 0)   
+    if (x >= lebar -1 || x < 0 || y >= tinggi-1 || y < 0)   
         gameOver = true;
 
     for (int i = 0; i < panjangEkor; i++)
@@ -405,6 +406,7 @@ void Logic()
         panjangEkor++;
     }
 }
+
 void ending(){
 	endwin();
 	system("cls");
@@ -461,10 +463,11 @@ void GameOver() {
 	cin >> pilih;
 
 	if (pilih == 'Y' || pilih == 'y') {
-   system("cls");
-} else {
-   ending();
-}
+	    Setup();
+   	
+	} else {
+        ending();
+	}
 }
 
 void startGame() {
@@ -502,7 +505,7 @@ int main() {
 
     system("color 3F");
     loadingawal();
- loadingAnimation();
+// 	loadingAnimation();
 
    while (true) { 
        system("cls");
