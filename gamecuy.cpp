@@ -7,14 +7,14 @@
 #include <ncurses/ncurses.h>
 using namespace std;
 
-bool gameOver = false;                                     //menunjukkan status permainan
+bool gameOver = false;                                    
 char character = 'O';
-const int lebar = 50;                            //lebar bidang permainan
-const int tinggi = 20;                       // Tinggi bidang permainan
+const int lebar = 50;                           
+const int tinggi = 20;                       
 int x, y, posisiBuahX, posisiBuahY, skor;
 int posisiEkorX[100], posisiEkorY[100];
 int panjangEkor;
-enum eArah { BERHENTI = 0, KIRI, KANAN, ATAS, BAWAH };    //arah ular (BERHENTI, KIRI, KANAN, ATAS, BAWAH)
+enum eArah { BERHENTI = 0, KIRI, KANAN, ATAS, BAWAH };    
 eArah arah;
 
 void gotoxy(int x, int y) {
@@ -35,21 +35,42 @@ void loadingawal() {
 	init_pair(2, COLOR_WHITE, COLOR_CYAN);	
 	
 	bkgd(COLOR_PAIR(2));
-
-	for (int i = 0; i <= COLS; i++){
-	mvprintw(2, i, "o");
-	mvprintw(LINES - 4, i, "o");
-	mvprintw(10, i, "o");
-	mvprintw(LINES - 12, i, "o");
-	refresh();
-	Sleep(5);
-	}
 	
 	attron(COLOR_PAIR(2));
-	mvprintw(12, 50, "     LOGGED IN      ");
+	
+	mvprintw(0,39," ______                _  _                ");                              
+    mvprintw(1,39,"|  ____|              | |(_)               ");
+    mvprintw(2,39,"| |                   | |                  ");
+    mvprintw(3,39,"| |__   ___   ___   __| | _  _ __    __ _  ");
+    mvprintw(4,39,"|  __| / _ \\ / _ \\ / _` || || '_ \\  / _` | ");
+    mvprintw(5,39,"| |   |  __/|  __/| (_| || || | | || (_| | ");
+    mvprintw(6,39,"|_|    \\___| \\___| \\__,_||_||_| |_| \\__  | ");
+    mvprintw(7,39,"                                    __/  | ");                                  
+    mvprintw(8,39,"                                   |____/  ");
+	
+	mvprintw(9, 40, "****************************************");
+	
+	for (int i = 10; i <= 18; i++) {
+    mvprintw(i, 40, "*");
+    mvprintw(i, 79, "*");
+}
+
+	mvprintw(12, 50, "     LOGGED IN...   ");
 	mvprintw(13, 50, " ------------------ ");
 	mvprintw(14, 50, "|                  |");
 	mvprintw(15, 50, " ------------------ ");
+	
+	mvprintw(19, 40, "****************************************");
+	
+	mvprintw(20,39," ______                              ");                              
+    mvprintw(21,39,"|  ____|                             ");
+    mvprintw(22,39,"| |     _ __   ___  _ __     _____  _   _ ");
+    mvprintw(23,39,"| |__  | '__| / _ \\| '_ \\   |_   / | | | |");
+    mvprintw(24,39,"|  __| | |   |  __/| | | |   /  /  | | | |");
+    mvprintw(25,39,"| |    | |   |   \\ | | | |  /  /   | |_| |");
+    mvprintw(26,39,"|_|    |_|    \\___||_| |_| /____|   \\__, |");
+    mvprintw(27,39,"                                     __/ |");                                  
+    mvprintw(28,39,"                                    |___/ ");     
 		
 	int load = 1;
 		
@@ -64,7 +85,7 @@ void loadingawal() {
 	refresh();
 	Sleep(50);
 	}
-		
+	
 	endwin();
 }
 
@@ -73,13 +94,31 @@ void SignUp() {
     string username, password;
 
     system("cls");
-    cout << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "			  		  ------------> SIGN UP <------------" << endl;
-    cout << "				  	  Enter Username: ";
-    cin >> username;
+    gotoxy(42,13);
+    gotoxy(40, 9);
+	cout << "****************************************";
+	
+	for (int i = 10; i <= 18; i++) {
+    gotoxy(40, i);
+	cout << "*";
+    gotoxy(79, i);
+	cout << "*";
+}
+	gotoxy(40,19);
+	cout << "****************************************";
 
-    cout << "				  	  Enter Password: ";
+    gotoxy(56,11);
+    cout << "SIGN UP" << endl;
+    gotoxy(45,14);
+    cout << "Enter Username : ";
+    cin >> username;
+    gotoxy(45,15);
+    cout << "Enter Password : ";
     cin >> password;
     cout << endl;
+    
+    gotoxy(40,19);
+	cout << "****************************************";
 
     myFile.open(username + ".txt");
     if (!myFile) {
@@ -96,8 +135,9 @@ void SignUp() {
     }
     accList << username << endl;
     accList.close();
-
-    cout << " 				   	  Sign Up Successful!" << endl;
+	
+	gotoxy(50,17);
+    cout <<"Sign Up Successful!" << endl;
     cin.ignore();
     cin.get();
 }
@@ -108,11 +148,27 @@ bool SignIn() {
     bool exist = false;
 
     system("cls");
-    cout <<"\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "			  		  ------------> LOGIN <------------" << endl;
-    cout << "				  	  Enter Username: ";
+    gotoxy(40, 9);
+	cout << "****************************************";
+	
+	for (int i = 10; i <= 18; i++) {
+    gotoxy(40, i);
+	cout << "*";
+    gotoxy(79, i);
+	cout << "*";
+}
+	gotoxy(40,19);
+	cout << "****************************************";
+
+    gotoxy(56,11);
+    cout << "SIGN IN" << endl;
+    gotoxy(45,14);
+    cout << "Enter Username : ";
     cin >> username;
-    cout << "					  Enter Password: ";
+    gotoxy(45,15);
+    cout << "Enter Password : ";
     cin >> password;
+    cout << endl;
 
     myFile.open(username + ".txt");
     if (!myFile) {
@@ -127,12 +183,14 @@ bool SignIn() {
     myFile.close();
 
     if (exist) {
-        cout << "\n 				   	  Sign In Successful!" << endl;
+    	gotoxy(50,17);
+        cout << "Sign In Successful!" << endl;
         cin.ignore();
         cin.get();
         return true;
     } else {
-        cout << "\n 				 	  Sign In Failed! Try Again." << endl;
+    	gotoxy(47,17);
+        cout << "Sign In Failed! Try Again." << endl;
         cin.ignore();
         cin.get();
         return false;
@@ -174,42 +232,42 @@ void loadingAnimation() {
         Sleep(50);
 
         gotoxy(WIDTH / 2 - 10, HEIGHT / 2); 
-        cout << "<<--FEEDING FRENZY-->>";
+        cout << "WELCOME TO OUR GAME";
 
         Sleep(5);
     }
 }
 
-void Setup()                     //inisialisasi variabel status permainan ke nilai awal
+void Setup()                     
 {
     gameOver = false;
     arah = BERHENTI;
     x = lebar / 2;
     y = tinggi / 2;
-    posisiBuahX = rand() % lebar;    //posisi acak untuk buah dan kepala ular
+    posisiBuahX = rand() % lebar;    
     posisiBuahY = rand() % tinggi;
     skor = 0;
 }
 
-void Draw()                          //mencetak bidang permainan dengan ular, buah, dan skor
+void Draw()                          
 {
     erase();
 
     printw("\n ");
-    for (int i = 0; i < lebar + 1; i++)  // batas papan
+    for (int i = 0; i < lebar + 1; i++)  
         printw("#");
     printw("\n");
 
 
-    for (int i = 0; i < tinggi; i++)                   //loop bersarang untuk mencetak batas lapangan, segmen ular, dan buah
+    for (int i = 0; i < tinggi; i++)                   
     {
         for (int j = 0; j < lebar; j++)
         {
             if (j == 0)
-                printw(" #");                           // papan
+                printw(" #");                          
             if (i == y && j == x)
-                printw("%c", character);                                     //ular
-            else if (i == posisiBuahY && j == posisiBuahX)    //buah atau ($)
+                printw("%c", character);                                     
+            else if (i == posisiBuahY && j == posisiBuahX)    
                 printw("@");
             else
             {
@@ -218,7 +276,7 @@ void Draw()                          //mencetak bidang permainan dengan ular, bu
                 {
                     if (posisiEkorX[k] == j && posisiEkorY[k] == i)
                     {
-                        printw("~");                       //ular makin panjang jika makan buah($)
+                        printw("~");                       
                         print = true;
                     }
                 }
@@ -235,10 +293,10 @@ void Draw()                          //mencetak bidang permainan dengan ular, bu
     printw(" ");
     for (int i = 0; i < lebar + 2; i++)
         printw("#");
-    printw("\n\n SCORE : %d\n", skor);   //memperbarui tampilan skor
+    printw("\n\n SCORE : %d\n", skor);   
 
         mvprintw(24,15,"W = UP");
-        mvprintw(25,15,"A = LEFT");     //deskripsi kontrol game snake wasd keys
+        mvprintw(25,15,"A = LEFT");     
         mvprintw(26,15,"S = DOWN");
         mvprintw(27,15,"D = RIGHT");
         
@@ -259,7 +317,7 @@ void Draw()                          //mencetak bidang permainan dengan ular, bu
         mvprintw(17,57,"| |    | |   |   \\ | | | |  /  /   | |_| |");
         mvprintw(18,57,"|_|    |_|    \\___||_| |_| /____|   \\__, |");
         mvprintw(19,57,"                                     __/ |");                                  
-        mvprintw(20,57,"                                    |___/ ");                           
+        mvprintw(20,57,"                                    |___/ ");                         
 
         mvprintw(24,30,"HOW TO PLAY :");
         mvprintw(25,30,"1. MOVE WITH WASD KEYS");
@@ -341,17 +399,74 @@ void Logic()
     if (x == posisiBuahX && y == posisiBuahY)
     {
         srand(time(0));
-        skor += 10;
+        skor += 2;
         posisiBuahX = rand() % lebar;     
         posisiBuahY = rand() % tinggi;
         panjangEkor++;
     }
 }
 
+void GameOver() {
+	endwin();
+    system("cls");
+    
+    cout << endl << endl;
+	cout <<"	       GGGGGGGGGGGGGG            aaaaaa          mmmmmm   mmmmmm   mmmmmm     eeeeeeeeeeeeee        "<<endl;
+	cout <<"	     G::::::::::::::G           a::::::a         m:::::m::::::::::m:::::m    e::::::::::::::ee      "<<endl;
+	cout <<"	    G::::GGGGGGGGGGGG          a::::::::a        m::::m m::::::::m m::::m   e::::::eeeee:::::ee     "<<endl;
+	cout <<"  	   G:::::G                    a::::::::::a       m::::m  m::::::m  m::::m  e::::::e     e:::::e     "<<endl;
+	cout <<"         G::::G                     a:::::aa:::::a      m::::m   m::::m   m::::m  e:::::::eeeee::::::e     "<<endl;
+	cout <<"	  G:::::G    GGGGGGGGGGGG   a::::a    a::::a     m::::m   m::::m   m::::m  e:::::::eeeeeeeeeee      "<<endl;
+	cout <<"	   G::::G       G::::::G   a:::::a    a:::::a    m::::m   m::::m   m::::m  e::::::e                 "<<endl;
+	cout <<"	    GG:::GGGGGGGG:::::G   a:::::::aaaa:::::::a   m::::m   m::::m   m::::m  e::::::::eeeeeeee        "<<endl;
+	cout <<"	     GGGG::::::::::::G   a::::::aa    aa::::::a  m::::m   m::::m   m::::m   ee:::::::::::::::e      "<<endl;
+	cout <<"	       GGGGGGGGGGGGGG    aaaaaaaa      aaaaaaaa  mmmmmm   mmmmmm   mmmmmm     eeeeeeeeeeeeeee       "<<endl;
+	cout <<"              																		              "<<endl;
+	cout <<" 	       ooooooooooo     vvvvvv           vvvvvv        eeeeeeeeeeee         rrrrr   rrrrrrrrr       "<<endl;
+	cout <<" 	     oo:::::::::::oo   v:::::v         v:::::v     ee::::::::::::ee        r::::rrr:::::::::r      "<<endl;
+	cout <<"	     o:::::::::::::::o   v:::::v       v:::::v     e::::::eeeee:::::ee      r:::::::::::::::::r     "<<endl;
+	cout <<"	     o:::::ooooo:::::o    v:::::v     v:::::v     e::::::e     e:::::e      rr:::::rrrrr::::::r     "<<endl;
+	cout <<"	     o::::o     o::::o     v:::::v   v:::::v      e:::::::eeeee::::::e      r:::::r     rrrrrr      "<<endl;
+	cout <<"	     o::::o     o::::o      v:::::v v:::::v       e::::::eeeeeeeeeeee       r:::::r                 "<<endl;                                                                            
+	cout <<"	     o:::::ooooo:::::o       v:::::v:::::v        e:::::e                   r:::::r                 "<<endl;                                                                           
+	cout <<"	     o:::::::::::::::o        v:::::::::v         e::::::::eeeeeeee         r:::::r                   "<<endl;                                                                                
+	cout <<"	      oo:::::::::::oo          v:::::::v           ee::::::::::::::e        r:::::r                   "<<endl;                                                                              
+	cout <<"	        ooooooooooo             vvvvvvv              eeeeeeeeeeeeee         rrrrrrr                   "<<endl;   
+ 	
+ 	gotoxy(45,26);
+	cout << "Game Over! Your score was: " << skor << endl;
+   	char pilih;
+   	gotoxy(45,28);
+	cout << "Apakah Ingin Bermain Lagi? [Y/N] : ";
+	cin >> pilih;
+
+	if (pilih == 'Y' || pilih == 'y') {
+   system("cls");
+} else {
+	gotoxy(35,30);
+    cout << "Keluar dari Feeding Frenzy, Hope You Always Happy ! :)" << endl;
+    exit(0); 
+}
+}
+
 void startGame() {
     system("cls");
-    cout <<"\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "\n" << "			  		  Start The Game... \n";
-    cout <<"			  		  Selamat Bermain Feeding Frenzy! \n";
+    gotoxy(40, 9);
+	cout << "****************************************";
+	
+	for (int i = 10; i <= 18; i++) {
+    gotoxy(40, i);
+	cout << "*";
+    gotoxy(79, i);
+	cout << "*";
+}
+	gotoxy(40,19);
+	cout << "****************************************";
+	
+    gotoxy(45,14);
+    cout <<"Starting The Feeding Frenzy...";
+    gotoxy(43,15);
+    cout <<"Hope You Enjoy The Game & Be Happy!";
     getch();
     Setup();
     nodelay(stdscr, TRUE);
@@ -362,6 +477,7 @@ void startGame() {
         Logic();
         napms(160);
     }
+    GameOver();
 }
 
 int main() {
@@ -370,7 +486,7 @@ int main() {
 
     system("color 3F");
     loadingawal();
-    loadingAnimation();
+//    loadingAnimation();
 
    while (true) { 
        system("cls");
@@ -402,7 +518,7 @@ int main() {
        }
        
 
-gotoxy(50, 2);
+	   gotoxy(50, 2);
        cout << "FEEDING FRENZY GAME";
        gotoxy(55, 3);
        cout << "Kelompok 7";
@@ -434,18 +550,23 @@ gotoxy(50, 2);
                     startGame();
                     
                 } else {
-                    cout << "\n \n \n \n \n \n                     			        		Please Sign In to play the game. \n";
+                	endwin();
+                	gotoxy(44,6);
+                    cout << "Please Sign In to able playing the game.";
                     cin.ignore();
         			cin.get();
                 }
                 break;
             case 4:
-                cout << "\n	\n \n \n \n \n								Exiting the game. Goodbye! \n";
+            	endwin();
+            	gotoxy(44,6);
+                cout << "Exiting the game. Thankyou for playing our game:) !";
                 cin.ignore();
         		cin.get();
                 return 0;
             default:
-                cout << "\n \n \n \n \n \n  										Invalid choice. Please choose between 1 and 4.\n";
+            	gotoxy(44,6);
+                cout << "Pilihan Tidak Ada. Silahkan Pilih antara 1 sampai 4.";
                 cin.ignore();
         		cin.get();
         }
