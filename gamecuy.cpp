@@ -415,7 +415,7 @@ void GameOver() {
 	cout <<"	     G::::::::::::::G           a::::::a         m:::::m::::::::::m:::::m    e::::::::::::::ee      "<<endl;
 	cout <<"	    G::::GGGGGGGGGGGG          a::::::::a        m::::m m::::::::m m::::m   e::::::eeeee:::::ee     "<<endl;
 	cout <<"  	   G:::::G                    a::::::::::a       m::::m  m::::::m  m::::m  e::::::e     e:::::e     "<<endl;
-	cout <<"      G::::G                     a:::::aa:::::a      m::::m   m::::m   m::::m  e:::::::eeeee::::::e     "<<endl;
+	cout <<"          G::::G                     a:::::aa:::::a      m::::m   m::::m   m::::m  e:::::::eeeee::::::e     "<<endl;
 	cout <<"	  G:::::G    GGGGGGGGGGGG   a::::a    a::::a     m::::m   m::::m   m::::m  e:::::::eeeeeeeeeee      "<<endl;
 	cout <<"	   G::::G       G::::::G   a:::::a    a:::::a    m::::m   m::::m   m::::m  e::::::e                 "<<endl;
 	cout <<"	    GG:::GGGGGGGG:::::G   a:::::::aaaa:::::::a   m::::m   m::::m   m::::m  e::::::::eeeeeeee        "<<endl;
