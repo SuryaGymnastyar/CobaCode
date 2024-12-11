@@ -411,7 +411,7 @@ void GameOver() {
     system("cls");
     
     cout << endl << endl;
-	cout <<"	       GGGGGGGGGGGGGG            aaaaaa          mmmmmm   mmmmmm   mmmmmm     eeeeeeeeeeeeee        "<<endl;
+	cout <<"	       GGGGGGGGGGGGGG            aaaaaa          mmmmmm   mmmmmm   mmmmmm      eeeeeeeeeeeee        "<<endl;
 	cout <<"	     G::::::::::::::G           a::::::a         m:::::m::::::::::m:::::m    e::::::::::::::ee      "<<endl;
 	cout <<"	    G::::GGGGGGGGGGGG          a::::::::a        m::::m m::::::::m m::::m   e::::::eeeee:::::ee     "<<endl;
 	cout <<"  	   G:::::G                    a::::::::::a       m::::m  m::::::m  m::::m  e::::::e     e:::::e     "<<endl;
