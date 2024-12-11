@@ -411,7 +411,7 @@ void GameOver() {
     system("cls");
     
     cout << endl << endl;
-	cout <<"	       GGGGGGGGGGGGGG            aaaaaa          mmmmmm   mmmmmm   mmmmmm      eeeeeeeeeeeee        "<<endl;
+	cout <<"	       GGGGGGGGGGGGGG            aaaaaa          mmmmmm   mmmmmm   mmmmmm     eeeeeeeeeeeeee        "<<endl;
 	cout <<"	     G::::::::::::::G           a::::::a         m:::::m::::::::::m:::::m    e::::::::::::::ee      "<<endl;
 	cout <<"	    G::::GGGGGGGGGGGG          a::::::::a        m::::m m::::::::m m::::m   e::::::eeeee:::::ee     "<<endl;
 	cout <<"  	   G:::::G                    a::::::::::a       m::::m  m::::::m  m::::m  e::::::e     e:::::e     "<<endl;
@@ -421,9 +421,9 @@ void GameOver() {
 	cout <<"	    GG:::GGGGGGGG:::::G   a:::::::aaaa:::::::a   m::::m   m::::m   m::::m  e::::::::eeeeeeee        "<<endl;
 	cout <<"	     GGGG::::::::::::G   a::::::aa    aa::::::a  m::::m   m::::m   m::::m   ee:::::::::::::::e      "<<endl;
 	cout <<"	       GGGGGGGGGGGGGG    aaaaaaaa      aaaaaaaa  mmmmmm   mmmmmm   mmmmmm     eeeeeeeeeeeeeee       "<<endl;
-	cout <<"                																        	            "<<endl;
-	cout <<" 	        ooooooooooo     vvvvvv           vvvvvv        eeeeeeeeeeee         rrrrr   rrrrrrrrr       "<<endl;
-	cout <<" 	      oo:::::::::::oo   v:::::v         v:::::v     ee::::::::::::ee        r::::rrr:::::::::r      "<<endl;
+	cout <<"              																		              "<<endl;
+	cout <<" 	       ooooooooooo     vvvvvv           vvvvvv        eeeeeeeeeeee         rrrrr   rrrrrrrrr       "<<endl;
+	cout <<" 	     oo:::::::::::oo   v:::::v         v:::::v     ee::::::::::::ee        r::::rrr:::::::::r      "<<endl;
 	cout <<"	     o:::::::::::::::o   v:::::v       v:::::v     e::::::eeeee:::::ee      r:::::::::::::::::r     "<<endl;
 	cout <<"	     o:::::ooooo:::::o    v:::::v     v:::::v     e::::::e     e:::::e      rr:::::rrrrr::::::r     "<<endl;
 	cout <<"	     o::::o     o::::o     v:::::v   v:::::v      e:::::::eeeee::::::e      r:::::r     rrrrrr      "<<endl;
@@ -469,13 +469,11 @@ void startGame() {
     cout <<"Hope You Enjoy The Game & Be Happy!";
     getch();
     Setup();
-    nodelay(stdscr, TRUE);
     while (!gameOver)             
     {
         Draw();
         Input();
         Logic();
-        napms(160);
     }
     GameOver();
 }
