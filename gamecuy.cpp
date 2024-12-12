@@ -11,8 +11,6 @@ char character = 'O';
 const int lebar = 50;                           
 const int tinggi = 20;                       
 int x, y, posisiBuahX, posisiBuahY, skor;
-int posisiEkorX[100], posisiEkorY[100];
-int panjangEkor;
 enum eArah { BERHENTI = 0, KIRI, KANAN, ATAS, BAWAH };    
 eArah arah;
 
@@ -246,7 +244,6 @@ void Setup()
     posisiBuahX = (rand() % (lebar - 2)) + 1;  
     posisiBuahY = (rand() % (tinggi - 2)) + 1;
     skor = 0;
-    panjangEkor = 0;
 }
 
 void Draw()                          
@@ -270,20 +267,7 @@ void Draw()
             else if (i == posisiBuahY && j == posisiBuahX)    
                 printw("@");
             else
-            {
-                bool print = false;
-                for (int k = 0; k < panjangEkor; k++)
-                {
-                    if (posisiEkorX[k] == j && posisiEkorY[k] == i)
-                    {
-                        printw("~");                       
-                        print = true;
-                    }
-                }
-                if (!print)
-                    printw(" ");
-            }
-
+                printw(" ");
             if (j == lebar - 2)
                 printw("#");
         }
@@ -354,20 +338,6 @@ void Input()
 
 void Logic()                           
 {
-    int prevX = posisiEkorX[0];
-    int prevY = posisiEkorY[0];
-    int prev2X, prev2Y;
-    posisiEkorX[0] = x;                  
-    posisiEkorY[0] = y;
-    for (int i = 1; i < panjangEkor; i++)
-    {
-        prev2X = posisiEkorX[i];                     
-        prev2Y = posisiEkorY[i];
-        posisiEkorX[i] = prevX;
-        posisiEkorY[i] = prevY;
-        prevX = prev2X;
-        prevY = prev2Y;
-    }
     switch (arah)
     {
     case KIRI:
@@ -388,13 +358,10 @@ void Logic()
         break;
     default:
     	break;
+    	
     }
     if (x >= lebar -1 || x < 0 || y >= tinggi-1 || y < 0)   
         gameOver = true;
-
-    for (int i = 0; i < panjangEkor; i++)
-        if (posisiEkorX[i] == x && posisiEkorY[i] == y)
-            gameOver = true;
 
     if (x == posisiBuahX && y == posisiBuahY)
     {
