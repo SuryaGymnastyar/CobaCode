@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <windows.h>
-#include <string>
 #include <cmath>
 #include <ctime>
 #include <ncurses/ncurses.h>
