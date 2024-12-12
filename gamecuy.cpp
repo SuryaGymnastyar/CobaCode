@@ -402,7 +402,6 @@ void Logic()
         skor += 2;
         posisiBuahX = (rand() % (lebar - 2)) + 1;     
         posisiBuahY = (rand() % (tinggi - 2)) + 1;
-        panjangEkor++;
     }
 }
 
